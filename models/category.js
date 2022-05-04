@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const postSchema = new Schema(
+const categorySchema = new Schema(
   {
     category: {
       type: String,
@@ -17,6 +17,7 @@ const postSchema = new Schema(
   { timestamps: true }
 );
 
-const Post = mongoose.model("Post", postSchema);
+const Category = mongoose.model("Category", categorySchema);
 
-export { Post };
+export { Category };
+

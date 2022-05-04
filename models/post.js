@@ -35,6 +35,7 @@ const postSchema = new Schema(
     likeLevel: Number,
     category: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
     comments: [commentSchema],
+    isAnonymous: Boolean
   },
   { timestamps: true }
 );
