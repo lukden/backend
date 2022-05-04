@@ -1,12 +1,23 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
+const { Schema } = mongoose;
 
-const profileSchema = new mongoose.Schema({
-  email: {type: String, required: true, lowercase: true, unique: true},
-  name: String,
-},{
+const profileSchema = new Schema(
+  {
+    first_name: { type: String, required: true },
+    last_name: { type: String, required: true },
+    avatar: { type: String },
+    email: { type: String, required: true, lowercase: true, unique: true },
+    posts: { type: Schema.Types.ObjectId, ref: "Post" },
+    categories: { type: Schema.Types.ObjectId, ref: "Category" },
+    favorited_posts: { type: Schema.Types.ObjectId, ref: "Post" },
+    location: String,
+    registered_events: { type: Schema.Types.ObjectId, ref: "Post" }
+  },
+  {
     timestamps: true,
-})
+  }
+);
 
-const Profile = mongoose.model('Profile', profileSchema)
+const Profile = mongoose.model("Profile", profileSchema);
 
-export {Profile}
+export { Profile };
