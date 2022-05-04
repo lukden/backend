@@ -2,7 +2,7 @@ import { Category } from '../models/category.js'
 import { Profile } from '../models/profile.js'
 import { Post } from '../models/post.js'
 
-const index = async (req, res) => {
+const indexCategory = async (req, res) => {
   try {
     const categories = await Category.find({}).populate('members')
     return res.status(200).json(categories)
@@ -12,7 +12,7 @@ const index = async (req, res) => {
   }
 }
 
-const create = async (req, res) => {
+const createCategory = async (req, res) => {
   console.log('Create a new category')
   try {
     console.log('Enter try block')
@@ -32,7 +32,7 @@ const create = async (req, res) => {
   }
 }
 
-const update = async (req, res) => {
+const updateCategory = async (req, res) => {
   console.log('Update Category!')
   try {
     const updatedCategory = await Category.findByIdAndUpdate(
@@ -79,7 +79,7 @@ const createPost = async (req, res) => {
   }
 }
 
-const show = async (req, res) => {
+const showCategory = async (req, res) => {
   try {
     const category = await Category.findById(req.params.id)
       .populate('posts')
@@ -166,4 +166,4 @@ const deleteComment = async (req, res) => {
   }
 }
 
-export { indexCategory, createCategory, updateCategory, deleteCategory, createPost, showIndex, showPost, updatePost, deletePost, createComment, updateComment, deleteComment }
+export { indexCategory, createCategory, updateCategory, deleteCategory, createPost, showCategory, showPost, updatePost, deletePost, createComment, updateComment, deleteComment }
